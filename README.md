@@ -1,2 +1,2 @@
 # lerna-rollup-npm
-Lerna monorepo using typescript, rollup, babel and jest 
+Lerna monorepo with web components using typescript, rollup, babel and jest 
