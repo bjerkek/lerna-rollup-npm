@@ -1,12 +1,10 @@
 import { ComponentA } from './index'
 
 const componentA = new ComponentA()
+document.body.appendChild(componentA) // needed for running connectedCallback
 
-// Append to body (to run connectedCallback)
-document.body.appendChild(componentA)
+const div = componentA.shadowRoot.querySelector('div')
 
-describe('ComponentA', () => {
-  test('Does it load', () => {
-    expect(document.body.innerHTML).toContain('<component-a></component-a>')
-  })
+it('displays ComponentA', () => {
+  expect(div.innerHTML.trim()).toBe('It works')
 })
