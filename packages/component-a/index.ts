@@ -1,14 +1,5 @@
-import HTMLTemplate from './template.html'
+import { ComponentA, tagName } from './component-a'
 
-const template = document.createElement('template')
-template.innerHTML = HTMLTemplate
-
-export class ComponentA extends HTMLElement {
-  #shadowRoot: ShadowRoot
-  constructor () {
-    super()
-    this.#shadowRoot = this.attachShadow({ mode: 'open' })
-    this.#shadowRoot.appendChild(template.content.cloneNode(true))
-  }
+if (!window.customElements.get(tagName)) {
+  window.customElements.define(tagName, ComponentA)
 }
-window.customElements.define('component-a', ComponentA)
